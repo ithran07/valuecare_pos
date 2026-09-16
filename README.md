@@ -199,3 +199,5 @@ Part 4 should add purchasing and supplier management:
 8. Stock receiving UI
 9. Warehouse/location support
 10. Returns and damaged stock workflow
+
+<!-- Vercel redeploy -->
