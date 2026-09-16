@@ -1,0 +1,152 @@
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px
+}
+
+.page-head h1 {
+    margin: 0 0 5px
+}
+
+.page-head p {
+    margin: 0;
+    color: #6b7785
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px
+}
+
+.card {
+    background: white;
+    border: 1px solid #e1e6eb;
+    border-radius: 20px;
+    padding: 20px
+}
+
+.card span {
+    display: block;
+    color: #6b7785
+}
+
+.card strong {
+    display: block;
+    font-size: 25px;
+    margin-top: 8px
+}
+
+.panel {
+    background: white;
+    border: 1px solid #e1e6eb;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px
+}
+
+.table-wrap {
+    background: white;
+    border: 1px solid #ebedf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(39, 47, 74, 0.025);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e8edf1
+}
+
+.pay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0
+}
+
+.payables-panel h2 {
+    margin-top: 0
+}
+
+/* =========================================================
+   LOADING / EMPTY STATES
+========================================================= */
+
+.customer-loading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 46px 24px;
+}
+
+.customer-loading-spinner {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #eef0f5;
+    border-top-color: #002455;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: customer-spin 0.7s linear infinite;
+}
+
+.customer-loading strong {
+    display: block;
+    color: #555d6e;
+    font-size: 15px;
+}
+
+.customer-loading span {
+    color: #a2a8b5;
+    font-size: 13px;
+}
+
+.customer-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.customer-empty-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #f2f3ff;
+    color: #002455;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.customer-empty h3 {
+    margin: 0;
+    color: #555d6e;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.customer-empty p {
+    margin: 4px 0 0;
+    color: #a2a8b5;
+    font-size: 14px;
+}
+
+@keyframes customer-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

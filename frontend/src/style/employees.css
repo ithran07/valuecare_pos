@@ -1,0 +1,646 @@
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+}
+
+.page-head h1 {
+  margin: 0;
+  color: #293143;
+  font-size: 27px;
+  font-weight: 750;
+}
+
+.page-head p {
+  margin: 7px 0 0;
+  color: #969eae;
+  font-size: 15px;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.employee-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  background: white;
+  border: 1px solid #ebedf2;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 5px 20px rgba(39, 47, 74, 0.025);
+}
+
+.employee-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 360px;
+  height: 40px;
+  background: #f7f8fc;
+  border: 1px solid #e9ebf1;
+  border-radius: 12px;
+  padding: 10px;
+  color: #9199aa;
+}
+
+.employee-search input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  color: #303748;
+}
+
+.employee-search input::placeholder {
+  color: #b1b6c2;
+}
+
+.employee-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #9199aa;
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.employee-search-clear:hover {
+  background: #f2f3f7;
+  color: #687084;
+}
+
+.employee-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.employee-toolbar-right span {
+  color: #9199aa;
+  font-size: 14px;
+}
+
+.employee-add-button {
+  background: #002455;
+  color: white;
+  border: 0;
+  border-radius: 11px;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(0, 36, 85, 0.2);
+  transition: opacity 0.15s ease;
+}
+
+.employee-add-button:hover {
+  opacity: 0.92;
+}
+
+.employee-activation-button {
+  border: 0;
+  border-radius: 11px;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.employee-activation-button.active {
+  background: #ffecec;
+  color: #df5858;
+}
+
+.employee-activation-button.inactive {
+  background: #f0ffec;
+  color: #4caf50;
+}
+
+.employee-activation-button:hover {
+  opacity: 0.92;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.employee-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.employee-modal {
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+}
+
+.employee-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #ebedf2;
+}
+
+.employee-section-label {
+  display: block;
+  color: #a0a7b7;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.employee-modal-header h2 {
+  margin: 0;
+  color: #293143;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.employee-modal-header p {
+  margin: 6px 0 0;
+  color: #969eae;
+  font-size: 14px;
+  max-width: 420px;
+}
+
+.employee-modal-close {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: #f7f8fc;
+  color: #9199aa;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.employee-modal-close:hover {
+  background: #eceef3;
+  color: #4a5262;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.employee-create-form {
+  padding: 24px;
+}
+
+.employee-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.employee-field-full {
+  grid-column: 1 / -1;
+}
+
+.employee-field label {
+  display: block;
+  color: #687084;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.employee-field label span {
+  color: #e56d87;
+  margin-left: 2px;
+}
+
+.employee-field input {
+  width: 100%;
+  border: 1px solid #e7e9ef;
+  border-radius: 11px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #303748;
+  background: white;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.employee-field input:focus {
+  border-color: #002455;
+  box-shadow: 0 0 0 3px rgba(0, 36, 85, 0.08);
+}
+
+.employee-field input:disabled {
+  background: #f7f8fc;
+  color: #a4aab7;
+  cursor: not-allowed;
+}
+
+.employee-field small {
+  display: block;
+  margin-top: 6px;
+  color: #a4aab7;
+  font-size: 12px;
+}
+
+.employee-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid #ebedf2;
+}
+
+.employee-cancel-button {
+  background: white;
+  border: 1px solid #e7e9ef;
+  color: #687084;
+  border-radius: 11px;
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.employee-cancel-button:hover {
+  background: #f7f8fc;
+}
+
+.employee-add-submit {
+  background: #002455;
+  color: white;
+  border: 0;
+  border-radius: 11px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(0, 36, 85, 0.2);
+  transition: opacity 0.15s ease;
+}
+
+.employee-add-submit:hover {
+  opacity: 0.92;
+}
+
+/* =========================================================
+   DROPDOWN (role select)
+========================================================= */
+
+.employee-dropdown {
+  position: relative;
+}
+
+.employee-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid #e7e9ef;
+  background: white;
+  border-radius: 11px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #4a5262;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.employee-dropdown-trigger:hover:not(:disabled) {
+  border-color: #ccd3e0;
+}
+
+.employee-dropdown-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.employee-dropdown-trigger svg {
+  color: #9199aa;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.employee-dropdown-trigger svg.rotated {
+  transform: rotate(180deg);
+}
+
+.employee-dropdown-menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 100%;
+  background: white;
+  border: 1px solid #ebedf2;
+  border-radius: 12px;
+  box-shadow: 0 14px 32px rgba(39, 47, 74, 0.1);
+  padding: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.employee-dropdown-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  white-space: nowrap;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #4a5262;
+  text-align: left;
+  cursor: pointer;
+}
+
+.employee-dropdown-option:hover {
+  background: #f7f8fc;
+}
+
+.employee-dropdown-option.active {
+  background: #f0ecff;
+  color: #4a3699;
+  font-weight: 600;
+}
+
+.employee-dropdown-option svg {
+  color: #7658df;
+  flex-shrink: 0;
+}
+
+/* Compact variant used inside the table */
+
+.employee-dropdown-compact .employee-dropdown-trigger {
+  padding: 7px 10px;
+  font-size: 13px;
+  border-radius: 9px;
+  min-width: 150px;
+}
+
+.employee-dropdown-compact .employee-dropdown-option {
+  font-size: 13px;
+  padding: 7px 9px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrap {
+  background: white;
+  border: 1px solid #ebedf2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(39, 47, 74, 0.025);
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table-wrap thead th {
+  text-align: left;
+  padding: 14px 18px;
+  background: #fafbfd;
+  color: #9199aa;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #ebedf2;
+  white-space: nowrap;
+}
+
+.table-wrap tbody td {
+  padding: 14px 18px;
+  color: #4a5262;
+  border-bottom: 1px solid #f2f3f7;
+  vertical-align: middle;
+}
+
+.table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table-wrap tbody tr:hover {
+  background: #fafbfe;
+}
+
+.table-wrap td strong {
+  color: #303748;
+  font-weight: 700;
+}
+
+.table-wrap button.secondary {
+  background: white;
+  border: 1px solid #e7e9ef;
+  color: #687084;
+  border-radius: 9px;
+  padding: 7px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.table-wrap button.secondary:hover {
+  background: #f7f8fc;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+  .employee-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-head h1 {
+    font-size: 23px;
+  }
+
+  .employee-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .employee-search {
+    max-width: none;
+  }
+
+  .employee-toolbar-right {
+    justify-content: space-between;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .table-wrap table {
+    min-width: 720px;
+  }
+}
+
+/* =========================================================
+   VIEW BUTTON (Account column)
+========================================================= */
+
+.employee-view-button {
+  background: white;
+  border: 1px solid #e7e9ef;
+  color: #002455;
+  border-radius: 9px;
+  padding: 7px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.employee-view-button:hover {
+  background: #f0f4fb;
+  border-color: #ccd8ee;
+}
+
+/* =========================================================
+   READ-ONLY NOTICE (Admin viewing a Super Admin account)
+========================================================= */
+
+.employee-readonly-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 24px 0;
+  padding: 12px 14px;
+  background: #fff7ed;
+  border: 1px solid #fde4c0;
+  border-radius: 12px;
+  color: #92650f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.employee-readonly-notice svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #e0a23a;
+}
+
+/* =========================================================
+   DETAIL MODAL ACTIONS (Deactivate / Delete / Close / Save)
+========================================================= */
+
+.employee-detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid #ebedf2;
+  flex-wrap: wrap;
+}
+
+.employee-detail-actions-left,
+.employee-detail-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.employee-delete-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 1px solid #f3c6c6;
+  color: #d32f2f;
+  border-radius: 11px;
+  padding: 9px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.employee-delete-button:hover {
+  background: #fff1f1;
+}
+
+.employee-add-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+  .employee-detail-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .employee-detail-actions-left,
+  .employee-detail-actions-right {
+    justify-content: space-between;
+  }
+}

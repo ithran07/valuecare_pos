@@ -1,0 +1,567 @@
+@import "./suppliers.css";
+
+.management-page {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.management-page .page-head {
+    margin-bottom: 22px;
+}
+
+.management-page .page-head h1 {
+    color: #293143;
+    font-size: 27px;
+    font-weight: 750;
+}
+
+.management-page .page-head p {
+    color: #969eae;
+    font-size: 15px;
+}
+
+.management-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: white;
+    border: 1px solid #ebedf2;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 5px 20px rgba(39, 47, 74, 0.025);
+}
+
+.management-toolbar .search {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1;
+    min-width: 220px;
+    max-width: 420px;
+    height: 40px;
+    margin: 0;
+    padding: 10px;
+    background: #f7f8fc;
+    border: 1px solid #e9ebf1;
+    border-radius: 12px;
+    color: #9199aa;
+    box-sizing: border-box;
+}
+
+.management-toolbar .search input {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #303748;
+    font-family: inherit;
+    font-size: 15px;
+    box-shadow: none;
+}
+
+.management-toolbar .search input::placeholder {
+    color: #b1b6c2;
+}
+
+.management-toolbar .search:focus-within {
+    border-color: #d7dbea;
+    box-shadow: 0 0 0 3px rgba(0, 36, 85, 0.05);
+}
+
+.management-toolbar select {
+    width: auto;
+    min-width: 130px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #e9ebf1;
+    border-radius: 12px;
+    background: #f7f8fc;
+    color: #687084;
+    font: inherit;
+}
+
+.management-select {
+    position: relative;
+    min-width: 130px;
+}
+
+.management-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #e9ebf1;
+    border-radius: 12px;
+    background: #f7f8fc;
+    color: #687084;
+    font: inherit;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.management-select-chevron-open {
+    transform: rotate(180deg);
+}
+
+.management-select-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 100%;
+    padding: 5px;
+    background: white;
+    border: 1px solid #ebedf2;
+    border-radius: 12px;
+    box-shadow: 0 14px 28px rgba(39, 47, 74, 0.12);
+    z-index: 10;
+}
+
+.management-select-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #687084;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.management-select-option:hover,
+.management-select-option.selected {
+    background: #f2f3ff;
+    color: #002455;
+}
+
+.management-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.management-count {
+    color: #9199aa;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.management-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #002455;
+    color: white;
+    border: 0;
+    border-radius: 11px;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 7px 18px rgba(0, 36, 85, 0.2);
+}
+
+.management-action:hover {
+    opacity: 0.92;
+}
+
+.management-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 50;
+}
+
+.management-modal {
+    width: min(100%, 760px);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+}
+
+.management-modal-wide {
+    width: min(100%, 1050px);
+}
+
+.management-modal-header,
+.management-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #ebedf2;
+}
+
+.management-modal-header h2 {
+    margin: 0;
+    color: #293143;
+    font-size: 21px;
+}
+
+.management-modal-header p {
+    margin: 6px 0 0;
+    color: #969eae;
+    font-size: 14px;
+}
+
+.management-modal-close {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    background: #f7f8fc;
+    color: #9199aa;
+    cursor: pointer;
+}
+
+.management-modal-body {
+    padding: 24px;
+}
+
+.management-modal-footer {
+    justify-content: flex-end;
+    border-top: 1px solid #ebedf2;
+    border-bottom: 0;
+}
+
+.management-cancel {
+    padding: 10px 16px;
+    border: 1px solid #dfe3eb;
+    border-radius: 11px;
+    background: white;
+    color: #596274;
+    cursor: pointer;
+}
+
+.management-modal .panel {
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.management-modal .panel h2 {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .management-toolbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .management-toolbar .search {
+        max-width: none;
+    }
+}
+
+.management-page>.panel {
+    margin-top: 18px;
+    padding: 0;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #ebedf2;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(39, 47, 74, 0.025);
+}
+
+.management-page>.panel h2 {
+    margin: 0;
+    padding: 24px 20px 14px;
+    color: #293143;
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.management-page>.panel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.management-page>.panel thead th {
+    padding: 14px 18px;
+    text-align: left;
+    background: #fafbfd;
+    border-bottom: 1px solid #ebedf2;
+    color: #9199aa;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.management-page>.panel tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f2f3f7;
+    color: #4a5262;
+    vertical-align: middle;
+}
+
+.management-page>.panel tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.management-page>.panel tbody tr:hover {
+    background: #fafbfe;
+}
+
+.management-page>.panel td strong {
+    color: #303748;
+    font-weight: 700;
+}
+
+.management-page>.panel td small {
+    display: block;
+    margin-top: 4px;
+    color: #a2a8b5;
+    font-size: 12px;
+}
+
+.management-page>.panel .management-action {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.management-page>.cards {
+    margin: 0 0 18px;
+}
+
+/* Modal forms use the same quiet field treatment as the Suppliers form. */
+.management-modal .grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.management-modal input:not([type="checkbox"]),
+.management-modal select,
+.management-modal textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #e7e9ef;
+    border-radius: 11px;
+    background: white;
+    color: #303748;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.management-modal textarea {
+    min-height: 92px;
+    margin-top: 14px;
+    resize: vertical;
+}
+
+.management-modal input:not([type="checkbox"]):focus,
+.management-modal select:focus,
+.management-modal textarea:focus {
+    border-color: #002455;
+    box-shadow: 0 0 0 3px rgba(0, 36, 85, 0.08);
+}
+
+.management-modal input[type="checkbox"] {
+    width: auto;
+    accent-color: #002455;
+}
+
+.management-modal .check-field {
+    min-height: 42px;
+    margin: 0;
+    padding: 0 4px;
+    color: #687084;
+    font-size: 13px;
+}
+
+.management-modal .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    max-height: 220px;
+    margin-top: 16px;
+    overflow-y: auto;
+}
+
+.management-modal .product {
+    min-height: 72px;
+    padding: 12px;
+    border: 1px solid #e7e9ef;
+    border-radius: 12px;
+    background: #fbfcfe;
+    color: #303748;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.management-modal .product:hover {
+    border-color: #cdd4e5;
+    background: #f7f8fc;
+    transform: translateY(-1px);
+}
+
+.management-modal .product strong,
+.management-modal .product span {
+    display: block;
+}
+
+.management-modal .product span {
+    margin-top: 4px;
+    color: #9199aa;
+    font-size: 12px;
+}
+
+.management-modal .cart-list {
+    max-height: 260px;
+    margin: 18px 0;
+    padding: 4px 0;
+    overflow-y: auto;
+}
+
+.management-modal .cart-row,
+.management-modal .receive-row {
+    border-bottom: 1px solid #f0f1f5;
+    padding: 12px 0;
+}
+
+.management-modal .cart-row:last-child,
+.management-modal .receive-row:last-child {
+    border-bottom: 0;
+}
+
+.management-modal .cart-row input,
+.management-modal .cart-row select,
+.management-modal .receive-row input {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.management-modal .cart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.management-modal .cart-head h2 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.management-modal .cart-head button,
+.management-modal .cart-row>button,
+.management-modal .receive-row>button {
+    border: 0;
+    border-radius: 8px;
+    background: #f7f8fc;
+    color: #9199aa;
+    cursor: pointer;
+}
+
+.management-modal .totals {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-top: 1px solid #ebedf2;
+    color: #687084;
+}
+
+.management-modal .totals strong {
+    color: #293143;
+    font-size: 17px;
+}
+
+.management-modal .checkout {
+    width: 100%;
+    margin-top: 8px;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 11px;
+    background: #002455;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(0, 36, 85, 0.16);
+}
+
+@media (max-width: 700px) {
+
+    .management-modal .grid-form,
+    .management-modal .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.management-modal .management-select {
+    width: 100%;
+    min-width: 0;
+}
+
+.management-modal .management-select-trigger {
+    height: 42px;
+    border-color: #e7e9ef;
+    background: white;
+    color: #303748;
+    font-size: 14px;
+}
+
+.management-form-grid .supplier-field-wide,
+.management-form-wide {
+    grid-column: 1 / -1;
+}
+
+.management-secondary-action {
+    align-self: end;
+    min-height: 42px;
+    padding: 10px 14px;
+    border: 1px solid #e7e9ef;
+    border-radius: 11px;
+    background: #f7f8fc;
+    color: #687084;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.management-secondary-action:hover {
+    background: #eceef3;
+    color: #4a5262;
+}
